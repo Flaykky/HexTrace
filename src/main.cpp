@@ -1,37 +1,32 @@
 #include "disAssembler.h"
-#include <iostream>
-#include <string>
-#include <utils.c>
 #include "utils.h"
-
-
+#include <iostream>
+#include <cstdlib>
+#include <string>
 
 int main() {
-
-
     size_t file_size;
     std::string file_path;
-
-    std::cout << "enter the path to binary file: ";
+    
+    std::cout << "Enter binary file path: ";
     std::cin >> file_path;
-
-    file_size = calculateSize(file_path.c_str());
-
-    char* binaryCode = readBinaryFile(file_path.c_str(), &file_size);
-
-    if (!binaryCode) {
+    
+    uint8_t* binary_data = readBinaryFile(file_path.c_str(), &file_size);
+    if (!binary_data) {
+        std::cerr << "Error reading file\n";
         return 1;
     }
-
-    char* asmCode = disAssembler(binaryCode, file_size, 0x0);
-
-    if (!asmCode) {
-        free(binaryCode);
+    
+    char* asm_code = disassemble(reinterpret_cast<const char*>(binary_data), file_size, 0x1000);
+    if (!asm_code) {
+        std::cerr << "Disassembly failed\n";
+        free(binary_data);
         return 1;
     }
-
-    createDisAsmFile(asmCode);
-
-
+    
+    createDisAsmFile(asm_code);
+    
+    free(binary_data);
+    free(asm_code);
     return 0;
 }
