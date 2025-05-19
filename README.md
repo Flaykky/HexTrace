@@ -10,7 +10,6 @@ Simple DisAssembler client for undetecteble reverse engineering
 
 ## Comming soon features
 - DeCompiler from Assembly to C language 
+## License
 
-## license 
-
-This project is licensed under the MIT License.
+Distributed under the MIT License. See [LICENSE](LICENSE) file for details.
