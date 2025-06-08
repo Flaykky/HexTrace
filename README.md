@@ -1,5 +1,5 @@
 # HexTrace
-Simple DisAssembler client for undetecteble reverse engineering 
+Simple DisAssembler client, for any computers 
 
 ## about code
 - Languages: C and C++ (excluding shell scripts)
