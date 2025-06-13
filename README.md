@@ -10,6 +10,8 @@ Simple DisAssembler client, for any computers
 
 ## Comming soon features
 - DeCompiler from Assembly to C language 
+- Debugger
+
 ## License
 
 Distributed under the MIT License. See [LICENSE](LICENSE) file for details.
